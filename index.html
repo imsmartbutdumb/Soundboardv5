@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sound Board</title>
+        <style>
+
+			/* Watermark styles */
+		.watermark {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			opacity: 0.5;
+			transform-origin: bottom right;
+			z-index: 9999;
+			height: auto;
+			width: 80px;
+			border-radius: 10px;
+		}
+          
+      button {
+        font-size: 24px;
+        padding: 16px 24px;
+        background: linear-gradient(45deg, #ff2400, #e81d1d, #e8b71d, #2ecc71, #3498db, #8e44ad, #ff00ff);
+        background-size: 400%;
+        color: black;
+        border: 2px black;
+        transition: background-position 0.5s ease-in-out;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        margin-right: 10px; /* add margin */
+        margin-bottom: 10px;
+        border-radius: 10px; /* Add rounded corners */
+      }
+
+button:hover {
+  cursor: pointer;
+}
+          
+      button:last-child {
+        margin-right: 0; /* remove margin for the last button */
+      }
+
+      button:hover {
+        background-position: 100%;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+      }
+
+      h1 {
+        color: #ff2a00;
+      }
+
+      #stop-all-sounds {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sound Board</h1>
+    <button onclick="playSound('/sounds/airhorn.mp3')">MLG Airhorn</button>
+    <button onclick="playSound('/sounds/boomvine.mp3')">Vine Boom</button>
+    <button onclick="playSound('/sounds/tacobell.mp3')">Taco Bell</button>
+    <button onclick="playSound('/sounds/mrbeast.mp3')">Mr.Beast</button>
+    <button onclick="playSound('/sounds/waterphone.mp3')">Waterphone</button>
+    <button onclick="playSound('/sounds/outrosound.mp3')">Outro Sound</button>
+    <button onclick="playSound('/sounds/bkad.mp3')">BK Ad Earrape</button>
+    <button onclick="playSound('/sounds/hogrida.mp3')">HOG RIDER</button>
+    <button onclick="playSound('/sounds/nfl.mp3')">NFL SOUND</button>
+    <button onclick="playSound('/sounds/bingchilling.mp3')">Bing Chilling</button>
+    <button onclick="playSound('/sounds/androidearrape.mp3')">Android Earrape</button>
+    <button onclick="playSound('/sounds/noorearrape.mp3')">Open The Noor Earrape</button>
+    <button onclick="playSound('/sounds/phoneding.mp3')">Iphone Ding</button>
+    <button onclick="playSound('/sounds/letmedoit.mp3')">Let Me Do It For You Earrape</button>
+    <button onclick="playSound('/sounds/burgereat.mp3')">You Want A Burger Eat A Burger</button>
+    <button onclick="playSound('/sounds/letsgo.mp3')">LESS GO</button>
+    <button onclick="playSound('/sounds/namdang.mp3')">NAM DANG NUM SOM</button>
+    <button onclick="playSound('/sounds/priceiswrong.mp3')">Price is Wrong</button>
+    <button onclick="playSound('/sounds/lebron-james.mp3')">Lebron James</button>
+    <button onclick="playSound('/sounds/snoopdogg.mp3')">Snoop Dogg</button>
+    <button onclick="playSound('/sounds/knocking.mp3')">Door Knocking</button>
+    <button onclick="playSound('/sounds/crickets.mp3')">Crickets</button>
+    <button onclick="playSound('/sounds/diss.mp3')">Spongebob Sad</button>
+    <button onclick="playSound('/sounds/hoodclassic.mp3')">Hood Classic</button>
+    <button onclick="playSound('/sounds/anotherone.mp3')">Another One</button>
+    <button onclick="playSound('/sounds/badtothebone.mp3')">Bad To The Bone</button>
+    <button onclick="playSound('/sounds/cena.mp3')">John Cena</button>
+    <button onclick="playSound('/sounds/2000years.mp3')">2000 Years Later</button>
+    <button onclick="playSound('/sounds/emodamage.mp3')">Emotional Damage</button>
+    <button onclick="playSound('/sounds/newbugatti.mp3')">NEW BUGATTI</button>
+    <button onclick="playSound('/sounds/milk.mp3')">Needs Some Milk</button>
+    <button onclick="playSound('/sounds/cavenoise.mp3')">Cave Noise</button>
+    <button id="stop-all-sounds" onclick="stopAllSounds()">Stop All Sounds (P)</button>
+
+    <script>
+      var currentSounds = [];
+
+      function playSound(soundFile) {
+        var audio = new Audio(soundFile);
+        audio.play();
+        currentSounds.push(audio);
+      }
+
+      function stopAllSounds() {
+        for (var i = 0; i < currentSounds.length; i++) {
+          currentSounds[i].pause();
+          currentSounds[i].currentTime = 0;
+        }
+        currentSounds = [];
+      }
+    </script>
+
+    <script>
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 80) {
+    // Space bar was pressed, trigger click event on the button
+    document.getElementById('stop-all-sounds').click();
+  }
+});
+</script>
+
+<img src="watermark.jpg" alt="Watermark" class="watermark">
+    
+  </body>
+  
+</html>
